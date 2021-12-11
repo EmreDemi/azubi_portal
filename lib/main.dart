@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:ap/sidebar.dart';
 import 'package:flutter/material.dart';
 import 'pending_events.dart';
 
@@ -40,20 +41,15 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(children: <Widget>[
-      SafeArea(
-        child: IconButton(
-            padding: EdgeInsets.all(17.0),
-            onPressed: pressed,
-            icon: Icon(
-              Icons.manage_accounts_outlined,
-              size: 35.0,
-              color: Colors.black,
-            )),
+        drawer: Sidebar(),
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text ('Dashboard'),
       ),
+        body: Column(children: <Widget>[
       Expanded(
           child: ListView.builder(
-        itemCount: pendingEvents.length,
+            itemCount: pendingEvents.length,
         itemBuilder: (content, i) {
           String key = pendingEvents.keys.elementAt(i);
           return PendingEvents(

@@ -14,6 +14,13 @@ class PendingEvents extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: BoxDecoration(
+          border:
+          Border.all(
+            color: Colors.grey,
+            width: 2
+          )
+      ),
       padding: EdgeInsets.symmetric(horizontal: 22.0, vertical: 10.0),
       child: ListTile(
         contentPadding: EdgeInsets.symmetric(vertical: 8.0),
