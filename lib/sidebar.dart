@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:ap/forms/forms.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart';
-import 'pending_events.dart';
 
 class Sidebar extends StatelessWidget {
   @override
@@ -40,28 +40,30 @@ class Sidebar extends StatelessWidget {
               ),
             ),
             trailing: Badge(
-              padding: EdgeInsets.all(8),
+              padding: EdgeInsets.all(6),
               badgeContent: Text(
                 '8',
                 style: TextStyle(
-                  fontSize: 15,
+                  fontSize: 9,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              child: Icon(Icons.fact_check_outlined, size: 40),
+              child: Icon(Icons.fact_check_outlined, size: 27),
             ),
             onTap: () => print('aufgaben'),
           ),
+          Divider(),
           ListTile(
-            trailing: Icon(Icons.calendar_today, size: 40),
+            trailing: Icon(Icons.calendar_today, size: 27),
             title: Text(
               'Kalender',
               style: TextStyle(fontSize: 18),
             ),
             onTap: () => print('kal'),
           ),
+          Divider(),
           ListTile(
-            trailing: Icon(Icons.description_outlined, size: 40),
+            trailing: Icon(Icons.description_outlined, size: 27),
             title: Text(
               'Formulare',
               style: TextStyle(fontSize: 18),
@@ -71,24 +73,25 @@ class Sidebar extends StatelessWidget {
               context,
               MaterialPageRoute<Widget>(
                 builder: (BuildContext context)=>
-                  PendingEvents(),
+                  Forms(),
                 )
               );
             }
               ),
               Divider(),
               ListTile(
-              trailing: Icon(Icons.person, size: 40),
+              trailing: Icon(Icons.person, size: 27),
               title: Text(
-              'wichtige Ansprechpartner',
+              'Wichtige Ansprechpartner',
               style: TextStyle(fontSize: 18),
               ),
               onTap: () => print('ansp'),
               ),
-              ListTile(
-              trailing: Icon(Icons.settings, size: 40),
+          Divider(),
+          ListTile(
+              trailing: Icon(Icons.settings, size: 27),
               title: Text(
-              'persönliche Einstellungen',
+              'Persönliche Einstellungen',
               style: TextStyle(fontSize: 18),
               ),
               onTap: () => print
@@ -96,7 +99,7 @@ class Sidebar extends StatelessWidget {
           ),
           Divider(),
           ListTile(
-            trailing: Icon(Icons.exit_to_app, size: 40),
+            trailing: Icon(Icons.exit_to_app, size: 27),
             title: Text(
               'Exit',
               style: TextStyle(fontSize: 18),
