@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'pending_events.dart';
+import 'forms/forms.dart';
 
 void main() => runApp(MaterialApp(home: Dashboard()));
 
@@ -40,30 +41,39 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          title: Text("AzubiPortal"),
+        ),
         body: Column(children: <Widget>[
-      SafeArea(
-        child: IconButton(
-            padding: EdgeInsets.all(17.0),
-            onPressed: pressed,
-            icon: Icon(
-              Icons.manage_accounts_outlined,
-              size: 35.0,
-              color: Colors.black,
-            )),
-      ),
-      Expanded(
-          child: ListView.builder(
-        itemCount: pendingEvents.length,
-        itemBuilder: (content, i) {
-          String key = pendingEvents.keys.elementAt(i);
-          return PendingEvents(
-            key,
-            pendingEvents.values.elementAt(i),
-            () => deleteItem(key),
-            () => toggleDone(key),
-          );
-        },
-      ))
-    ]));
+          Expanded(
+              child: ListView.builder(
+            itemCount: pendingEvents.length,
+            itemBuilder: (content, i) {
+              String key = pendingEvents.keys.elementAt(i);
+              return PendingEvents(
+                key,
+                pendingEvents.values.elementAt(i),
+                () => deleteItem(key),
+                () => toggleDone(key),
+              );
+            },
+          ))
+        ]),
+        floatingActionButton: FloatingActionButton(
+          child: Text("Formulare"),
+            onPressed: ()
+    {
+      Navigator.push(
+        context,
+        MaterialPageRoute<Widget>(
+            builder: (BuildContext context) =>
+                Forms()
+        ),
+      );
+    }
+        )
+    );
+
+
   }
 }
