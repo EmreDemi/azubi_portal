@@ -1,6 +1,9 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart';
+import 'pending_events.dart';
 
 class Sidebar extends StatelessWidget {
   @override
@@ -63,24 +66,33 @@ class Sidebar extends StatelessWidget {
               'Formulare',
               style: TextStyle(fontSize: 18),
             ),
-            onTap: () => print('form'),
-          ),
-          Divider(),
-          ListTile(
-            trailing: Icon(Icons.person, size: 40),
-            title: Text(
+            onTap: () {
+              Navigator.push<Widget>(
+              context,
+              MaterialPageRoute<Widget>(
+                builder: (BuildContext context)=>
+                  PendingEvents(),
+                )
+              );
+            }
+              ),
+              Divider(),
+              ListTile(
+              trailing: Icon(Icons.person, size: 40),
+              title: Text(
               'wichtige Ansprechpartner',
               style: TextStyle(fontSize: 18),
-            ),
-            onTap: () => print('ansp'),
-          ),
-          ListTile(
-            trailing: Icon(Icons.settings, size: 40),
-            title: Text(
+              ),
+              onTap: () => print('ansp'),
+              ),
+              ListTile(
+              trailing: Icon(Icons.settings, size: 40),
+              title: Text(
               'persönliche Einstellungen',
               style: TextStyle(fontSize: 18),
-            ),
-            onTap: () => print('einst'),
+              ),
+              onTap: () => print
+            ('einst'),
           ),
           Divider(),
           ListTile(
@@ -96,3 +108,4 @@ class Sidebar extends StatelessWidget {
     );
   }
 }
+
