@@ -15,6 +15,7 @@ class _DashboardState extends State<Dashboard> {
   Map<String, bool> pendingEvents = {
     'Termin 1': false,
     'Termin 2': false,
+    'Termin 3': false,
   };
 
   void pressed() {}
@@ -42,24 +43,29 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
     return Scaffold(
         drawer: Sidebar(),
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text ('Dashboard'),
-      ),
-        body: Column(children: <Widget>[
-      Expanded(
-          child: ListView.builder(
-            itemCount: pendingEvents.length,
-        itemBuilder: (content, i) {
-          String key = pendingEvents.keys.elementAt(i);
-          return PendingEvents(
-            key,
-            pendingEvents.values.elementAt(i),
-            () => deleteItem(key),
-            () => toggleDone(key),
-          );
-        },
-      ))
-    ]));
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text('Dashboard'),
+        ),
+          body: Column(
+              children: <Widget>[
+                SizedBox(height: 10,),
+            Expanded(
+                child: ListView.builder(
+              itemCount: pendingEvents.length,
+              itemBuilder: (content, i) {
+                String key = pendingEvents.keys.elementAt(i);
+                return PendingEvents(
+                  key,
+                  pendingEvents.values.elementAt(i),
+                    () => deleteItem(key),
+                    () => toggleDone(key),
+                  );
+                },
+              )
+            )
+            ]),
+    );
   }
 }
+
